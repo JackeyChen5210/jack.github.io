@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="Chinese">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="x-pack的破解（5.x）                    body, td {       font-family: 微软雅黑;       font-size: 10pt;     }       x-pack的破解（5.x）   创建时间：2018/12/28 10:54 更新时间：2018/12/28 11:31 作者：1163418857@qq.com 来源：https">
+<meta property="og:type" content="article">
+<meta property="og:title" content="x-pack的安装">
+<meta property="og:url" content="http://yoursite.com/2019/01/02/x-pack的破解（5.x）/index.html">
+<meta property="og:site_name" content="JackeyChen的个人博客">
+<meta property="og:description" content="x-pack的破解（5.x）                    body, td {       font-family: 微软雅黑;       font-size: 10pt;     }       x-pack的破解（5.x）   创建时间：2018/12/28 10:54 更新时间：2018/12/28 11:31 作者：1163418857@qq.com 来源：https">
+<meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://yoursite.com/2019/01/02/x-pack的破解（5.x）/x-pack的破解（5.x）_files/Image.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/02/x-pack的破解（5.x）/x-pack的破解（5.x）_files/Image%20[1].png">
+<meta property="og:image" content="http://yoursite.com/2019/01/02/x-pack的破解（5.x）/x-pack的破解（5.x）_files/Image%20[2].png">
+<meta property="og:updated_time" content="2019-01-02T06:47:19.928Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="x-pack的安装">
+<meta name="twitter:description" content="x-pack的破解（5.x）                    body, td {       font-family: 微软雅黑;       font-size: 10pt;     }       x-pack的破解（5.x）   创建时间：2018/12/28 10:54 更新时间：2018/12/28 11:31 作者：1163418857@qq.com 来源：https">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/02/x-pack的破解（5.x）/x-pack的破解（5.x）_files/Image.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/02/x-pack的破解（5.x）/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>x-pack的安装 | JackeyChen的个人博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion .logo-line-before i { left: initial; }
+    .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Chinese">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JackeyChen的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">1</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien<span class="badge">1</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv<span class="badge">4</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />Schedule</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />Sitemap</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/02/x-pack的破解（5.x）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jackey Chen">
+      <meta itemprop="description" content="愿无岁月可回头，且以深情共余生。">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JackeyChen的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">x-pack的安装
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-02 13:53:42 / Updated at: 14:47:19" itemprop="dateCreated datePublished" datetime="2019-01-02T13:53:42+08:00">2019-01-02</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <title>x-pack的破解（5.x）</title>
+  <basefont face="微软雅黑" size="2">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="exporter-version" content="YXBJ Windows/600405 (zh-CN, DDL); Windows/10.0.0 (Win64);">
+  <meta name="content-class" content="yinxiang.markdown">
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="769">
+<h1>x-pack的破解（5.x）</h1>
+<div>
+<table bgcolor="#D4DDE5" border="0">
+<tr><td><b>创建时间：</b></td><td><i>2018/12/28 10:54</i></td></tr>
+<tr><td><b>更新时间：</b></td><td><i>2018/12/28 11:31</i></td></tr>
+<tr><td><b>作者：</b></td><td><i>1163418857@qq.com</i></td></tr>
+<tr><td><b>来源：</b></td><td><a href="https://zhuanlan.zhihu.com/p/38576593" target="_blank" rel="noopener"><i>https://zhuanlan.zhihu.com/p/38576593</i></a></td></tr>
+</table>
+</div>
+<br>
+
+<div><span><div style="font-size: 14px; margin: 0; padding: 0; width: 100%;"><h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">明确ES的安装路径：</h5>
+<blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333; margin-top: 0; margin-bottom: 0;">cd /opt/es</p>
+</blockquote>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="x-pack的破解（5.x）_files/Image.png" hash="50b136ae2c4d5f68a8fddee395c733d2" type="image/png" data-filename="Image.png"></p>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">解压 x-pack-5.6.9.jar</h5>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">备份文件：</li>
+</ul>
+<blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333; margin-top: 0; margin-bottom: 0;">cp /opt/es/plugins/x-pack/x-pack-5.6.9.jar /usr/x-pack-5.6.9.jar.bak</p>
+</blockquote>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">解压文件，先创建文件夹，因为解压之后默认不会生成根文件夹</li>
+</ul>
+<blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333; margin-top: 0; margin-bottom: 0;">cd /opt<br>
+mkdir x-pack</p>
+</blockquote>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">复制jar包到刚才新建的x-pack目录方便解压</li>
+</ul>
+<blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333; margin-top: 0; margin-bottom: 0;">cp /opt/es/plugins/x-pack/x-pack-5.6.9.jar /opt/x-pack<br>
+jar -xvf x-pack-5.6.9.jar</p>
+</blockquote>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">解压之后就可以删除这个jar包了</li>
+</ul>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">创建 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">LicenseVerifier.java</code></h5>
+<pre style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; margin: 2px 0 8px; background-color: #f5f7f8;"><code style="display: block; overflow-x: auto; background: #1e1e1e; line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; letter-spacing: -.3px; padding: 18px; color: #f4f4f4; white-space: pre-wrap;">echo &quot;
+package org.elasticsearch.license;
+
+public class LicenseVerifier
+{
+    public static boolean verifyLicense(final License license, final byte[] encryptedPublicKeyData) {
+        return true;
+    }
+
+    public static boolean verifyLicense(final License license) {
+        return true;
+    }
+}
+&quot; &gt; LicenseVerifier.java
+</code></pre>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="x-pack的破解（5.x）_files/Image [1].png" hash="f37309836abbfaa7a7992a58b5b8dd76" type="image/png" data-filename="Image.png"></p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">然后将刚才新建的这个 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">.java</code> 文件编译成 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">.class</code> 文件</li>
+</ul>
+<blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333; margin-top: 0; margin-bottom: 0;">javac -cp &quot;/opt/es/lib/elasticsearch-5.6.9.jar:/opt/es/lib/lucene-core-6.6.1.jar:/opt/es/plugins/x-pack/x-pack-5.6.9.jar&quot; LicenseVerifier.java</p>
+</blockquote>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">路径和版本号根据自己的需求进行调整</li>
+</ul>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">接下来就是将生成的 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">LicenseVerifier.class</code>文件覆盖到<code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">x-pack-5.6.9.jar</code>解压出来的文件夹下面</h5>
+<blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333; margin-top: 0; margin-bottom: 0;">mv LicenseVerifier.class ./x-pack/org/elasticsearch/license/</p>
+</blockquote>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">将x-pack这个文件夹重新打包</h5>
+<blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333; margin-top: 0; margin-bottom: 0;">jar -cvf x-pack-5.6.9.jar ./x-pack/*</p>
+</blockquote>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">将新的 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">jar</code> 覆盖掉elasticsearch的插件里面的<code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">jar</code></h5>
+<blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333; margin-top: 0; margin-bottom: 0;">mv x-pack-5.6.9.jar /opt/es/plugins/x-pack</p>
+</blockquote>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">重启elasticsearch</h5>
+<hr style="line-height: 160%; box-sizing: content-box; border-top: 1px solid #eee; margin: 16px 0;">
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">注意：如果重启ES报错，说找不到xpackPlugin,说明打包的不合理，我试过好多次都是报错找不到class，估计是maven打包才可以。</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">下面是我破解之后的 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">jar</code>，不是 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">zip</code> ,需要将该 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">jar</code> 覆盖插件里面的jar包，只是5.6.9版本适用（将压缩包和<code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">.class</code> 文件拷贝出来直接替换的）</li>
+</ul>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><a href="https://pan.baidu.com/s/1EecWU1mLI8kNK9zdcMUoHw" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;" target="_blank" rel="noopener"> 密码：yi4z</a></p>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">创建 <code style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; color: #c1788b; padding: 4px 4px 2px 0; letter-spacing: -.3px;">license.json</code> ,内容如下：</h5>
+<pre style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; margin: 2px 0 8px; background-color: #f5f7f8;"><code style="display: block; overflow-x: auto; background: #1e1e1e; line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; letter-spacing: -.3px; padding: 18px; color: #f4f4f4; white-space: pre-wrap;">{
+	<span style="color: #9cdcfe; line-height: 160%; box-sizing: content-box;">&quot;license&quot;</span>: {
+		<span style="color: #9cdcfe; line-height: 160%; box-sizing: content-box;">&quot;uid&quot;</span>: <span style="color: #d69d85; line-height: 160%; box-sizing: content-box;">&quot;171e95c8-4bba-496b-96b9-a8e079c83925&quot;</span>,
+		<span style="color: #9cdcfe; line-height: 160%; box-sizing: content-box;">&quot;type&quot;</span>: <span style="color: #d69d85; line-height: 160%; box-sizing: content-box;">&quot;platinum&quot;</span>,
+		<span style="color: #9cdcfe; line-height: 160%; box-sizing: content-box;">&quot;issue_date_in_millis&quot;</span>: <span style="color: #b8d7a3; line-height: 160%; box-sizing: content-box;">1530057600000</span>,
+		<span style="color: #9cdcfe; line-height: 160%; box-sizing: content-box;">&quot;expiry_date_in_millis&quot;</span>: <span style="color: #b8d7a3; line-height: 160%; box-sizing: content-box;">2524579200999</span>,
+		<span style="color: #9cdcfe; line-height: 160%; box-sizing: content-box;">&quot;max_nodes&quot;</span>: <span style="color: #b8d7a3; line-height: 160%; box-sizing: content-box;">100</span>,
+		<span style="color: #9cdcfe; line-height: 160%; box-sizing: content-box;">&quot;issued_to&quot;</span>: <span style="color: #d69d85; line-height: 160%; box-sizing: content-box;">&quot;jack(zentrust)&quot;</span>,
+		<span style="color: #9cdcfe; line-height: 160%; box-sizing: content-box;">&quot;issuer&quot;</span>: <span style="color: #d69d85; line-height: 160%; box-sizing: content-box;">&quot;Web Form&quot;</span>,
+		<span style="color: #9cdcfe; line-height: 160%; box-sizing: content-box;">&quot;signature&quot;</span>: <span style="color: #d69d85; line-height: 160%; box-sizing: content-box;">&quot;AAAAAwAAAA17DTj3Rb3cxoE0VNIHAAABmC9ZN0hjZDBGYnVyRXpCOW5Bb3FjZDAxOWpSbTVoMVZwUzRxVk1PSmkxaktJRVl5MUYvUWh3bHZVUTllbXNPbzBUemtnbWpBbmlWRmRZb25KNFlBR2x0TXc2K2p1Y1VtMG1UQU9TRGZVSGRwaEJGUjE3bXd3LzRqZ05iLzRteWFNekdxRGpIYlFwYkJiNUs0U1hTVlJKNVlXekMrSlVUdFIvV0FNeWdOYnlESDc3MWhlY3hSQmdKSjJ2ZTcvYlBFOHhPQlV3ZHdDQ0tHcG5uOElCaDJ4K1hob29xSG85N0kvTWV3THhlQk9NL01VMFRjNDZpZEVXeUtUMXIyMlIveFpJUkk2WUdveEZaME9XWitGUi9WNTZVQW1FMG1DenhZU0ZmeXlZakVEMjZFT2NvOWxpZGlqVmlHNC8rWVVUYzMwRGVySHpIdURzKzFiRDl4TmM1TUp2VTBOUlJZUlAyV0ZVL2kvVk10L0NsbXNFYVZwT3NSU082dFNNa2prQ0ZsclZ4NTltbU1CVE5lR09Bck93V2J1Y3c9PQAAAQC4ZJhCl93iw2GjQmjF/c5XB6Xc+pgkf5MmnBPCsEfjbVd2AAKbylTDsEcdcv6RauMFGPO+ciAFedFklesyYfxTg+lAv/XmpssdV4vOdvTYR/c4+pdyvzyXuwRqcZ4lmFhdZh1DBvTtMB+ndH9B3iJPjVtbg5jwUjyO6PNfCL5Gsmi2NxzmoW6iSVSiUTQlaysS/qyS0lzL+59Yptuwdv8XG7e6KSUY7Ef6zC4ygL7i5zXAEjLYz1gKtGs5FVC6q4ejG1yrRZi0+BG7JvECdqHICSthr2qnHElPnyk34yKPZeeOYaHzrvOq+DYtNSCx9IwubR4c+xuxBOy4g8xTetAv&quot;</span>,
+		<span style="color: #9cdcfe; line-height: 160%; box-sizing: content-box;">&quot;start_date_in_millis&quot;</span>: <span style="color: #b8d7a3; line-height: 160%; box-sizing: content-box;">1530057600000</span>
+	}
+}
+</code></pre>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">&quot;type&quot;: &quot;platinum&quot;</strong> 这个表示白金版</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">&quot;expiry_date_in_millis&quot;: 2524579200999</strong> 这个表示截止日期:2050.1.1</li>
+</ul>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">更新license</h5>
+<pre style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; margin: 2px 0 8px; background-color: #f5f7f8;"><code style="display: block; overflow-x: auto; background: #1e1e1e; line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; letter-spacing: -.3px; padding: 18px; color: #f4f4f4; white-space: pre-wrap;">curl -XPUT -u elastic:changeme &quot;http://xxx.xx.xx.xxx:9200/_xpack/license?acknowledge=true&quot; -d @license.json
+</code></pre>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">查看license的状态</h5>
+<pre style="line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; margin: 2px 0 8px; background-color: #f5f7f8;"><code style="display: block; overflow-x: auto; background: #1e1e1e; line-height: 160%; box-sizing: content-box; border: 0; border-radius: 0; letter-spacing: -.3px; padding: 18px; color: #f4f4f4; white-space: pre-wrap;">curl -XGET -u elastic:changeme  &quot;http://xxx.xx.xx.xxx:9200/_license&quot;
+</code></pre>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="x-pack的破解（5.x）_files/Image [2].png" hash="1acc750b47d70ec9bf047b37cf7ad3c5" type="image/png" data-filename="Image.png"></p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">注：6.x版本在更新license之前需要关闭xpack的安全：</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">在elasticsearch.yml配置文件中设置：</li>
+</ul>
+<blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333; margin-top: 0; margin-bottom: 0;">xpack.security.enabled: false</p>
+</blockquote>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">配置完成之后才可以更新license，生效之后再次开启以上的设置并且开启ssl</li>
+</ul>
+<blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333; margin-top: 0; margin-bottom: 0;">xpack.security.transport.ssl.enabled: true</p>
+</blockquote>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">重启 elasticsearch ，查看license状态</li>
+</ul>
+</div><center style="display:none !important;visibility:collapse !important;height:0 !important;white-space:nowrap;width:100%;overflow:hidden">%23%23%23%23%23%20%E6%98%8E%E7%A1%AEES%E7%9A%84%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84%EF%BC%9A%0A%3E%20cd%20%2Fopt%2Fes%0A%0A!%5B50b136ae2c4d5f68a8fddee395c733d2.png%5D(en-resource%3A%2F%2Fdatabase%2F771%3A0)%0A%0A%23%23%23%23%23%20%E8%A7%A3%E5%8E%8B%20x-pack-5.6.9.jar%0A*%20%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%EF%BC%9A%0A%3E%20cp%20%2Fopt%2Fes%2Fplugins%2Fx-pack%2Fx-pack-5.6.9.jar%20%2Fusr%2Fx-pack-5.6.9.jar.bak%0A*%20%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6%EF%BC%8C%E5%85%88%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E5%9B%A0%E4%B8%BA%E8%A7%A3%E5%8E%8B%E4%B9%8B%E5%90%8E%E9%BB%98%E8%AE%A4%E4%B8%8D%E4%BC%9A%E7%94%9F%E6%88%90%E6%A0%B9%E6%96%87%E4%BB%B6%E5%A4%B9%0A%3E%20cd%20%2Fopt%0A%3E%20mkdir%20x-pack%20%0A*%20%E5%A4%8D%E5%88%B6jar%E5%8C%85%E5%88%B0%E5%88%9A%E6%89%8D%E6%96%B0%E5%BB%BA%E7%9A%84x-pack%E7%9B%AE%E5%BD%95%E6%96%B9%E4%BE%BF%E8%A7%A3%E5%8E%8B%0A%3E%20cp%20%2Fopt%2Fes%2Fplugins%2Fx-pack%2Fx-pack-5.6.9.jar%20%2Fopt%2Fx-pack%0A%3E%20jar%20-xvf%20x-pack-5.6.9.jar%0A*%20%E8%A7%A3%E5%8E%8B%E4%B9%8B%E5%90%8E%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%88%A0%E9%99%A4%E8%BF%99%E4%B8%AAjar%E5%8C%85%E4%BA%86%0A%0A%23%23%23%23%23%20%E5%88%9B%E5%BB%BA%20%60LicenseVerifier.java%60%0A%60%60%60%0Aecho%20%22%0Apackage%20org.elasticsearch.license%3B%0A%0Apublic%20class%20LicenseVerifier%0A%7B%0A%20%20%20%20public%20static%20boolean%20verifyLicense(final%20License%20license%2C%20final%20byte%5B%5D%20encryptedPublicKeyData)%20%7B%0A%20%20%20%20%20%20%20%20return%20true%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20public%20static%20boolean%20verifyLicense(final%20License%20license)%20%7B%0A%20%20%20%20%20%20%20%20return%20true%3B%0A%20%20%20%20%7D%0A%7D%0A%22%20%3E%20LicenseVerifier.java%0A%60%60%60%0A!%5Bf37309836abbfaa7a7992a58b5b8dd76.png%5D(en-resource%3A%2F%2Fdatabase%2F773%3A0)%0A%0A*%20%E7%84%B6%E5%90%8E%E5%B0%86%E5%88%9A%E6%89%8D%E6%96%B0%E5%BB%BA%E7%9A%84%E8%BF%99%E4%B8%AA%20%60%20.java%60%20%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91%E6%88%90%20%60.class%60%20%E6%96%87%E4%BB%B6%0A%0A%3E%20javac%20-cp%20%22%2Fopt%2Fes%2Flib%2Felasticsearch-5.6.9.jar%3A%2Fopt%2Fes%2Flib%2Flucene-core-6.6.1.jar%3A%2Fopt%2Fes%2Fplugins%2Fx-pack%2Fx-pack-5.6.9.jar%22%20LicenseVerifier.java%0A*%20%E8%B7%AF%E5%BE%84%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%B7%E6%A0%B9%E6%8D%AE%E8%87%AA%E5%B7%B1%E7%9A%84%E9%9C%80%E6%B1%82%E8%BF%9B%E8%A1%8C%E8%B0%83%E6%95%B4%0A%0A%23%23%23%23%23%20%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%B0%B1%E6%98%AF%E5%B0%86%E7%94%9F%E6%88%90%E7%9A%84%20%60LicenseVerifier.class%60%E6%96%87%E4%BB%B6%E8%A6%86%E7%9B%96%E5%88%B0%60x-pack-5.6.9.jar%60%E8%A7%A3%E5%8E%8B%E5%87%BA%E6%9D%A5%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%0A%0A%3E%20mv%20LicenseVerifier.class%20.%2Fx-pack%2Forg%2Felasticsearch%2Flicense%2F%0A%0A%23%23%23%23%23%20%E5%B0%86x-pack%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E9%87%8D%E6%96%B0%E6%89%93%E5%8C%85%0A%3E%20jar%20-cvf%20x-pack-5.6.9.jar%20.%2Fx-pack%2F*%0A%0A%23%23%23%23%23%20%E5%B0%86%E6%96%B0%E7%9A%84%20%60jar%60%20%E8%A6%86%E7%9B%96%E6%8E%89elasticsearch%E7%9A%84%E6%8F%92%E4%BB%B6%E9%87%8C%E9%9D%A2%E7%9A%84%60%20jar%60%20%0A%0A%3E%20mv%20x-pack-5.6.9.jar%20%2Fopt%2Fes%2Fplugins%2Fx-pack%0A%0A%23%23%23%23%23%20%E9%87%8D%E5%90%AFelasticsearch%0A%0A*%20*%20*%0A*%20%E6%B3%A8%E6%84%8F%EF%BC%9A%E5%A6%82%E6%9E%9C%E9%87%8D%E5%90%AFES%E6%8A%A5%E9%94%99%EF%BC%8C%E8%AF%B4%E6%89%BE%E4%B8%8D%E5%88%B0xpackPlugin%2C%E8%AF%B4%E6%98%8E%E6%89%93%E5%8C%85%E7%9A%84%E4%B8%8D%E5%90%88%E7%90%86%EF%BC%8C%E6%88%91%E8%AF%95%E8%BF%87%E5%A5%BD%E5%A4%9A%E6%AC%A1%E9%83%BD%E6%98%AF%E6%8A%A5%E9%94%99%E6%89%BE%E4%B8%8D%E5%88%B0class%EF%BC%8C%E4%BC%B0%E8%AE%A1%E6%98%AFmaven%E6%89%93%E5%8C%85%E6%89%8D%E5%8F%AF%E4%BB%A5%E3%80%82%0A*%20%E4%B8%8B%E9%9D%A2%E6%98%AF%E6%88%91%E7%A0%B4%E8%A7%A3%E4%B9%8B%E5%90%8E%E7%9A%84%20%60jar%60%EF%BC%8C%E4%B8%8D%E6%98%AF%20%60zip%60%20%2C%E9%9C%80%E8%A6%81%E5%B0%86%E8%AF%A5%20%60jar%60%20%E8%A6%86%E7%9B%96%E6%8F%92%E4%BB%B6%E9%87%8C%E9%9D%A2%E7%9A%84jar%E5%8C%85%EF%BC%8C%E5%8F%AA%E6%98%AF5.6.9%E7%89%88%E6%9C%AC%E9%80%82%E7%94%A8%EF%BC%88%E5%B0%86%E5%8E%8B%E7%BC%A9%E5%8C%85%E5%92%8C%60.class%60%20%E6%96%87%E4%BB%B6%E6%8B%B7%E8%B4%9D%E5%87%BA%E6%9D%A5%E7%9B%B4%E6%8E%A5%E6%9B%BF%E6%8D%A2%E7%9A%84%EF%BC%89%0A%0A%5B%20%E5%AF%86%E7%A0%81%EF%BC%9Ayi4z%5D(https%3A%2F%2Fpan.baidu.com%2Fs%2F1EecWU1mLI8kNK9zdcMUoHw)%0A%0A%23%23%23%23%23%20%E5%88%9B%E5%BB%BA%20%60license.json%60%20%2C%E5%86%85%E5%AE%B9%E5%A6%82%E4%B8%8B%EF%BC%9A%0A%60%60%60json%0A%7B%0A%09%22license%22%3A%20%7B%0A%09%09%22uid%22%3A%20%22171e95c8-4bba-496b-96b9-a8e079c83925%22%2C%0A%09%09%22type%22%3A%20%22platinum%22%2C%0A%09%09%22issue_date_in_millis%22%3A%201530057600000%2C%0A%09%09%22expiry_date_in_millis%22%3A%202524579200999%2C%0A%09%09%22max_nodes%22%3A%20100%2C%0A%09%09%22issued_to%22%3A%20%22jack(zentrust)%22%2C%0A%09%09%22issuer%22%3A%20%22Web%20Form%22%2C%0A%09%09%22signature%22%3A%20%22AAAAAwAAAA17DTj3Rb3cxoE0VNIHAAABmC9ZN0hjZDBGYnVyRXpCOW5Bb3FjZDAxOWpSbTVoMVZwUzRxVk1PSmkxaktJRVl5MUYvUWh3bHZVUTllbXNPbzBUemtnbWpBbmlWRmRZb25KNFlBR2x0TXc2K2p1Y1VtMG1UQU9TRGZVSGRwaEJGUjE3bXd3LzRqZ05iLzRteWFNekdxRGpIYlFwYkJiNUs0U1hTVlJKNVlXekMrSlVUdFIvV0FNeWdOYnlESDc3MWhlY3hSQmdKSjJ2ZTcvYlBFOHhPQlV3ZHdDQ0tHcG5uOElCaDJ4K1hob29xSG85N0kvTWV3THhlQk9NL01VMFRjNDZpZEVXeUtUMXIyMlIveFpJUkk2WUdveEZaME9XWitGUi9WNTZVQW1FMG1DenhZU0ZmeXlZakVEMjZFT2NvOWxpZGlqVmlHNC8rWVVUYzMwRGVySHpIdURzKzFiRDl4TmM1TUp2VTBOUlJZUlAyV0ZVL2kvVk10L0NsbXNFYVZwT3NSU082dFNNa2prQ0ZsclZ4NTltbU1CVE5lR09Bck93V2J1Y3c9PQAAAQC4ZJhCl93iw2GjQmjF%2Fc5XB6Xc%2Bpgkf5MmnBPCsEfjbVd2AAKbylTDsEcdcv6RauMFGPO%2BciAFedFklesyYfxTg%2BlAv%2FXmpssdV4vOdvTYR%2Fc4%2BpdyvzyXuwRqcZ4lmFhdZh1DBvTtMB%2BndH9B3iJPjVtbg5jwUjyO6PNfCL5Gsmi2NxzmoW6iSVSiUTQlaysS%2FqyS0lzL%2B59Yptuwdv8XG7e6KSUY7Ef6zC4ygL7i5zXAEjLYz1gKtGs5FVC6q4ejG1yrRZi0%2BBG7JvECdqHICSthr2qnHElPnyk34yKPZeeOYaHzrvOq%2BDYtNSCx9IwubR4c%2BxuxBOy4g8xTetAv%22%2C%0A%09%09%22start_date_in_millis%22%3A%201530057600000%0A%09%7D%0A%7D%0A%60%60%60%0A*%20**%22type%22%3A%20%22platinum%22**%20%E8%BF%99%E4%B8%AA%E8%A1%A8%E7%A4%BA%E7%99%BD%E9%87%91%E7%89%88%0A*%20**%22expiry_date_in_millis%22%3A%202524579200999**%20%E8%BF%99%E4%B8%AA%E8%A1%A8%E7%A4%BA%E6%88%AA%E6%AD%A2%E6%97%A5%E6%9C%9F%3A2050.1.1%0A%23%23%23%23%23%20%E6%9B%B4%E6%96%B0license%0A%60%60%60%0Acurl%20-XPUT%20-u%20elastic%3Achangeme%20%22http%3A%2F%2Fxxx.xx.xx.xxx%3A9200%2F_xpack%2Flicense%3Facknowledge%3Dtrue%22%20-d%20%40license.json%0A%60%60%60%0A%23%23%23%23%23%20%E6%9F%A5%E7%9C%8Blicense%E7%9A%84%E7%8A%B6%E6%80%81%0A%0A%60%60%60%0Acurl%20-XGET%20-u%20elastic%3Achangeme%20%20%22http%3A%2F%2Fxxx.xx.xx.xxx%3A9200%2F_license%22%0A%60%60%60%0A!%5B1acc750b47d70ec9bf047b37cf7ad3c5.png%5D(en-resource%3A%2F%2Fdatabase%2F775%3A0)%0A%0A*%20%E6%B3%A8%EF%BC%9A6.x%E7%89%88%E6%9C%AC%E5%9C%A8%E6%9B%B4%E6%96%B0license%E4%B9%8B%E5%89%8D%E9%9C%80%E8%A6%81%E5%85%B3%E9%97%ADxpack%E7%9A%84%E5%AE%89%E5%85%A8%EF%BC%9A%0A*%20%E5%9C%A8elasticsearch.yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E8%AE%BE%E7%BD%AE%EF%BC%9A%0A%3E%20xpack.security.enabled%3A%20false%0A*%20%E9%85%8D%E7%BD%AE%E5%AE%8C%E6%88%90%E4%B9%8B%E5%90%8E%E6%89%8D%E5%8F%AF%E4%BB%A5%E6%9B%B4%E6%96%B0license%EF%BC%8C%E7%94%9F%E6%95%88%E4%B9%8B%E5%90%8E%E5%86%8D%E6%AC%A1%E5%BC%80%E5%90%AF%E4%BB%A5%E4%B8%8A%E7%9A%84%E8%AE%BE%E7%BD%AE%E5%B9%B6%E4%B8%94%E5%BC%80%E5%90%AFssl%0A%3E%20xpack.security.transport.ssl.enabled%3A%20true%0A*%20%E9%87%8D%E5%90%AF%20elasticsearch%20%EF%BC%8C%E6%9F%A5%E7%9C%8Blicense%E7%8A%B6%E6%80%81</center></span>
+</div></a></body></html> 
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/02/Elasticsearch----6.2.2的集群部署/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Jackey Chen</p>
+              <p class="site-description motion-element" itemprop="description">愿无岁月可回头，且以深情共余生。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">Tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">x-pack的破解（5.x）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">明确ES的安装路径：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">解压 x-pack-5.6.9.jar</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">创建 LicenseVerifier.java</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.0.4.</span> <span class="nav-text">接下来就是将生成的 LicenseVerifier.class文件覆盖到x-pack-5.6.9.jar解压出来的文件夹下面</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.0.5.</span> <span class="nav-text">将x-pack这个文件夹重新打包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.0.6.</span> <span class="nav-text">将新的 jar 覆盖掉elasticsearch的插件里面的jar</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.0.7.</span> <span class="nav-text">重启elasticsearch</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.0.8.</span> <span class="nav-text">创建 license.json ,内容如下：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.0.9.</span> <span class="nav-text">更新license</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.0.10.</span> <span class="nav-text">查看license的状态</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackey Chen</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.6.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
